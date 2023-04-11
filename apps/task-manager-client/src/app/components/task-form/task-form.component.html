@@ -1,0 +1,33 @@
+<div class="form">
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" required />
+      <mat-error *ngIf="taskForm.controls['description'].invalid">
+        Please enter a task description.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="completed">Completed</mat-checkbox>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      *ngIf="!updateData"
+      [disabled]="taskForm.invalid"
+    >
+      Add Task
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="updateForm()"
+      *ngIf="updateData"
+      type="button"
+      [disabled]="taskForm.invalid"
+    >
+      Update Task
+    </button>
+  </form>
+</div>
