@@ -1,0 +1,42 @@
+<div class="form">
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <h3>Sign Up</h3>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="signUpForm.controls['name'].invalid">
+        Please enter a valid name.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required />
+      <mat-error *ngIf="signUpForm.controls['email'].invalid">
+        Please enter a valid email address.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" required />
+      <mat-error *ngIf="signUpForm.get('password')?.hasError('required')"
+        >Please enter a password.</mat-error
+      >
+      <mat-error
+        *ngIf="signUpForm.get('password')?.hasError('forbiddenPassword')"
+        >Password should not contain the word "password".</mat-error
+      >
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="signUpForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>
