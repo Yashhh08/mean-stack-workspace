@@ -1,0 +1,21 @@
+<header>
+  <mat-toolbar color="primary">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <!-- <mat-icon>menu</mat-icon> -->
+    </button>
+    <span>MEAN STACK APPLICATION</span>
+    <span class="example-spacer"></span>
+    <p>Welcome</p>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onLogin()">Login</button>
+        <button mat-menu-item (click)="onLogout($event)">Logout</button>
+      </mat-menu>
+    </button>
+  </mat-toolbar>
+</header>
