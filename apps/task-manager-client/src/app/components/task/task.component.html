@@ -1,0 +1,55 @@
+<p>
+  <mat-toolbar>
+    <h2>Task Manager App</h2>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="primary" (click)="openDialog({})">
+      Add Task
+    </button>
+  </mat-toolbar>
+</p>
+
+<mat-divider></mat-divider>
+
+<table mat-table [dataSource]="tasks">
+  <ng-container matColumnDef="sr">
+    <th mat-header-cell *matHeaderCellDef>Sr No.</th>
+    <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let task">{{ task.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let task">
+      {{ task.completed == true ? 'Completed' : 'Pending' }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="update">
+    <th mat-header-cell *matHeaderCellDef>Update</th>
+    <td mat-cell *matCellDef="let task">
+      <button mat-icon-button (click)="updateTask(task)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef>Delete</th>
+    <td mat-cell *matCellDef="let task">
+      <button mat-icon-button (click)="deleteTask(task)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let task of tasks; columns: displayedColumns"></tr>
+</table>
+
+<h2 style="text-align: center" *ngIf="tasks?.length === 0">
+  No Tasks Found..!!
+</h2>
