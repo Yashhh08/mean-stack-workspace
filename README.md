@@ -15,3 +15,34 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+# Task Manager Application
+
+This is a task manager application built using Nx monorepo, Angular, Node.js, Express, and MongoDB. The application allows users to sign up, log in, view tasks, add tasks, update and delete them, and log out. The server uses JWT token for authentication.
+
+## Technologies Used
+
+- Nx monorepo
+- Angular
+- Angular Material
+- Node.js
+- Express
+- MongoDB
+
+## Features
+
+- User sign up and login
+- View tasks
+- Add tasks
+- Update tasks
+- Delete tasks
+- Logout
+
+## Acknowledgements
+
+- Nx monorepo documentation: https://nx.dev/
+- Angular documentation: https://angular.io/
+- Node.js documentation: https://nodejs.org/
+- Express documentation: https://expressjs.com/
+- MongoDB documentation: https://docs.mongodb.com/
+- JWT documentation: https://jwt.io/
