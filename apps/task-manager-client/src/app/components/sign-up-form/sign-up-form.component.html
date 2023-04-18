@@ -28,6 +28,9 @@
         *ngIf="signUpForm.get('password')?.hasError('forbiddenPassword')"
         >Password should not contain the word "password".</mat-error
       >
+      <mat-error *ngIf="signUpForm.controls['password'].hasError('minlength')">
+        Password must be at least 7 characters long.
+      </mat-error>
     </mat-form-field>
 
     <button
